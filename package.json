@@ -1,0 +1,45 @@
+{
+  "name": "ut-gateway",
+  "version": "7.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@hapi/boom": "7.4.11",
+    "@hapi/h2o2": "8.3.2",
+    "@hapi/hapi": "18.4.0"
+  },
+  "devDependencies": {
+    "tap": "^14.10.7",
+    "ut-function.capture-hapi": "^1.1.1",
+          "ut-run": "^10.20.0",
+    "ut-tools": "^6.33.4"
+  },
+  "peerDependencies": {
+    "ut-port-script": "^7.1.0"
+  },
+  "description": "API gateway",
+  "scripts": {
+    "lint": "ut-lint .",
+    "release": "ut-release",
+    "changelog": "ut-changelog",
+    "check": "ut-check",
+    "cover": "ut-cover-parallel",
+    "lint-js": "ut-lint-js .",
+    "postpublish": "ut-postpublish",
+    "postversion": "ut-postversion",
+    "precommit": "ut-precommit",
+    "precover": "ut-precover",
+    "prepublish": "ut-prepublish",
+    "prepush": "ut-prepush",
+    "pretest": "ut-pretest",
+    "preversion": "ut-preversion",
+    "test": "ut-test-parallel",
+    "version": "ut-version",
+    "jenkins": "ut-jenkins",
+    "gitlab": "ut-gitlab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:softwaregroup-bg/ut-gateway.git"
+  },
+  "license": "Apache-2.0"
+}
