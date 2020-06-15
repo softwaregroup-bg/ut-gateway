@@ -16,6 +16,7 @@ module.exports = function({namespace, methods}) {
                     api: ['/rpc/{path*}'],
                     proxy: {
                         passThrough: true,
+                        xforward: true,
                         host: 'localhost',
                         port: 8090,
                         protocol: 'http'
