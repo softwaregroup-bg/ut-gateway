@@ -1,3 +1,12 @@
+## [7.1.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.1.0...v7.1.1) (2020-06-15)
+
+
+### Bug Fixes
+
+* xforward by default ([0565784](https://github.com/softwaregroup-bg/ut-gateway/commit/0565784c21420e80db83d1caf1a542d7dcd8e178))
+
+
+
 # 7.1.0 (2020-06-01)
 
 
