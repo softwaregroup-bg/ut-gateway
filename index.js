@@ -1,7 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const H2o2 = require('@hapi/h2o2');
 const scriptPort = require('ut-port-script');
-
+const uuid = require('uuid').v4;
 module.exports = function({namespace, methods}) {
     return (...params) => ({
         [namespace]: class extends scriptPort(...params) {
@@ -76,8 +76,29 @@ module.exports = function({namespace, methods}) {
             }
 
             handlers() {
+                const proxy = {};
+                this.httpServer.route({
+                    path: '/proxy/{identifier}',
+                    method: '*',
+                    auth: false,
+                    payload: { parse: false, output: 'stream' },
+                    handler({params: {identifier}, ...request}, h) {
+                        if (!proxy[identifier]) throw new Error('Access denied');
+                        const {method, uri} = proxy[identifier]();
+                        if (method !== request.method) throw new Error('Access denied');
+                        return h.proxy({ uri, passThrough: true });
+                    }
+                });
                 return {
                     [namespace + 'service.get']: () => params[0].utMethod.pkg,
+                    [namespace + '.url.proxy']: ({url, once = true, method = 'get'}) => {
+                        const identifier = uuid();
+                        proxy[identifier] = () => {
+                            if (once) delete proxy[identifier];
+                            return { uri: url, method: method.toLowerCase() };
+                        };
+                        return { once, method, path: '/proxy/' + identifier };
+                    },
                     ...methods
                 };
             }
