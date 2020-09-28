@@ -16,7 +16,8 @@
     "why-is-node-running": "^2.1.2"
   },
   "peerDependencies": {
-    "ut-port-script": "^7.1.0"
+    "ut-port-script": "^7.1.0",
+    "ut-run": "^10.32.0"
   },
   "description": "API gateway",
   "scripts": {

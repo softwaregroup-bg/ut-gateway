@@ -1,13 +1,14 @@
 const Hapi = require('@hapi/hapi');
 const H2o2 = require('@hapi/h2o2');
 const scriptPort = require('ut-port-script');
+const busApi = ['rpc', 'a', 'api'];
 
 module.exports = function({namespace, methods}) {
     return (...params) => ({
         [namespace]: class extends scriptPort(...params) {
             get defaults() {
                 return {
-                    namespace,
+                    // namespace,
                     type: 'gateway',
                     server: {
                         port: 8080
@@ -35,6 +36,41 @@ module.exports = function({namespace, methods}) {
                     });
                 }
                 await this.httpServer.register([H2o2]);
+                const apiPath = api => {
+                    switch (typeof api) {
+                        case 'string': {
+                            const [root, type, service, ...rest] = api.split('/');
+                            const last = rest[rest.length - 1];
+                            if (last === '{path*}') rest.pop();
+                            return busApi.includes(type) && service && {
+                                serviceName: service + '-service',
+                                path: [root, type, service, ...rest].join('/'),
+                                pathType: last === '{path*}' ? 'Prefix' : 'Exact'
+                            };
+                        }
+                        case 'object': {
+                            const parts = api.path.split('/');
+                            const last = parts[parts.length - 1];
+                            if (last === '{path*}') parts.pop();
+                            return api.service && {
+                                serviceName: api.service + '-service',
+                                path: parts.join('/'),
+                                pathType: last === '{path*}' ? 'Prefix' : 'Exact'
+                            };
+                        }
+                    }
+                };
+                this.config.k8s = {
+                    ingresses: this.config.api.map(api => {
+                        api = apiPath(api);
+                        return api && {
+                            name: namespace.toLowerCase(),
+                            host: this.config.host || namespace.toLowerCase(),
+                            servicePort: 'http-jsonrpc',
+                            ...api
+                        };
+                    }).filter(Boolean)
+                };
                 return result;
             }
 
@@ -51,8 +87,9 @@ module.exports = function({namespace, methods}) {
                     },
                     async handler(request, h) {
                         const [, root, service] = request.path.split('/', 3);
-                        const {host, port, protocol} = root === 'rpc'
-                            ? discover && await bus.discoverService(service)
+                        const appService = (request.route.settings.app && request.route.settings.app.service);
+                        const {host, port, protocol} = (discover && (appService || busApi.includes(root)))
+                            ? await bus.discoverService(appService || service)
                             : bus.info();
                         return h.proxy({
                             ...proxy,
@@ -62,7 +99,18 @@ module.exports = function({namespace, methods}) {
                         });
                     }
                 };
-                this.httpServer.route(api.map(path => ({method: '*', path, options})));
+                this.httpServer.route(api.map(path => ({
+                    method: '*',
+                    path: path.path || path,
+                    options: {
+                        ...path.service && {
+                            app: {
+                                service: path.service
+                            }
+                        },
+                        ...options
+                    }
+                })));
                 await this.httpServer.start();
                 return result;
             }
