@@ -1,3 +1,12 @@
+## [7.2.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.0...v7.2.1) (2020-10-28)
+
+
+### Bug Fixes
+
+* upgrade hapi ([bac4ba7](https://github.com/softwaregroup-bg/ut-gateway/commit/bac4ba74c52069053c1ae07b323a66c687925d5c))
+
+
+
 # [7.2.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.1.1...v7.2.0) (2020-09-28)
 
 
