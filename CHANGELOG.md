@@ -1,3 +1,7 @@
+## [7.2.2](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.1...v7.2.2) (2020-11-02)
+
+
+
 ## [7.2.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.0...v7.2.1) (2020-10-28)
 
 
