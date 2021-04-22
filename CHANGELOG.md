@@ -1,3 +1,12 @@
+# [7.3.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.2...v7.3.0) (2021-04-22)
+
+
+### Features
+
+* log gateway errors ([57f9b14](https://github.com/softwaregroup-bg/ut-gateway/commit/57f9b144b7784793c4932bcadc0e606f3d774922))
+
+
+
 ## [7.2.2](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.1...v7.2.2) (2020-11-02)
 
 
