@@ -36,6 +36,13 @@ module.exports = function({namespace, methods}) {
                     });
                 }
                 await this.httpServer.register([H2o2]);
+
+                this.httpServer.ext('onPreResponse', (request, h) => {
+                    const response = request.response;
+                    if (response.isBoom) this.error(response);
+                    return h.continue;
+                });
+
                 const apiPath = api => {
                     switch (typeof api) {
                         case 'string': {
