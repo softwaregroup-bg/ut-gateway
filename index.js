@@ -95,7 +95,7 @@ module.exports = function({namespace, methods}) {
                     async handler(request, h) {
                         const [, root, service] = request.path.split('/', 3);
                         const appService = (request.route.settings.app && request.route.settings.app.service);
-                        const {host, port, protocol} = (discover && (appService || busApi.includes(root)))
+                        const {hostname, host = hostname, port, protocol} = (discover && (appService || busApi.includes(root)))
                             ? await bus.discoverService(appService || service)
                             : bus.info();
                         return h.proxy({
