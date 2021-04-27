@@ -1,3 +1,12 @@
+## [7.3.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.3.0...v7.3.1) (2021-04-27)
+
+
+### Bug Fixes
+
+* host alternatives ([c155cc8](https://github.com/softwaregroup-bg/ut-gateway/commit/c155cc87fa952c91844f01b50553111c82819962))
+
+
+
 # [7.3.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.2.2...v7.3.0) (2021-04-22)
 
 
