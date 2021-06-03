@@ -1,3 +1,12 @@
+# [7.4.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.3.1...v7.4.0) (2021-06-03)
+
+
+### Features
+
+* use bus client TLS config [UTCORE-121] ([94b616f](https://github.com/softwaregroup-bg/ut-gateway/commit/94b616f4c42901ad5b0bfabb173c1f04ac0e1535))
+
+
+
 ## [7.3.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.3.0...v7.3.1) (2021-04-27)
 
 
