@@ -10,14 +10,15 @@
   "devDependencies": {
     "tap": "^14.10.8",
     "ut-function.capture-hapi": "^1.1.1",
-    "ut-run": "^10.38.3",
+    "ut-run": "^10.55.3",
     "ut-port-script": "^7.1.1",
     "ut-tools": "^6.34.2",
     "why-is-node-running": "^2.2.0"
   },
   "peerDependencies": {
     "ut-port-script": "^7.1.1",
-    "ut-run": "^10.38.3"
+    "ut-bus": "^7.47.0",
+    "ut-run": "^10.55.3"
   },
   "description": "API gateway",
   "scripts": {
