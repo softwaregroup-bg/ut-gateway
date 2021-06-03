@@ -27,6 +27,13 @@ module.exports = function({namespace, methods}) {
             }
 
             async init() {
+                function createAgent() {
+                    const tls = params[0]?.config?.utBus?.serviceBus?.jsonrpc?.client?.tls;
+                    if (!tls) return;
+                    const {Agent} = require('https');
+                    return new Agent(require('ut-bus/cert')({tls}));
+                }
+                const agent = createAgent();
                 const result = await super.init(...arguments);
                 this.httpServer = new Hapi.Server(this.config.server);
                 if (this.config.capture) {
@@ -35,7 +42,7 @@ module.exports = function({namespace, methods}) {
                         options: {name: this.config.id + '-receive', ...this.config.capture}
                     });
                 }
-                await this.httpServer.register([H2o2]);
+                await this.httpServer.register([{plugin: H2o2, options: {agent}}]);
 
                 this.httpServer.ext('onPreResponse', (request, h) => {
                     const response = request.response;
