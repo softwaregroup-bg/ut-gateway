@@ -8,7 +8,7 @@
     "@hapi/hapi": "20.0.1"
   },
   "devDependencies": {
-    "tap": "^14.10.8",
+    "tap": "^15.0.10",
     "ut-function.capture-hapi": "^1.1.1",
     "ut-run": "^10.55.3",
     "ut-port-script": "^7.1.1",
