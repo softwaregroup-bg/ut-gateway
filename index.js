@@ -140,7 +140,7 @@ module.exports = function({namespace, methods}) {
 
             ready() {
                 const {protocol, port} = this.httpServer.info;
-                this.log?.info(`${protocol}://localhost:${port}/api`);
+                this.log?.info?.(`${protocol}://localhost:${port}/api`);
                 return super.ready();
             }
 
