@@ -96,6 +96,7 @@ module.exports = function({namespace, methods}) {
                 const options = {
                     auth: false,
                     payload: {
+                        maxBytes: 1024 * 1024 * 1024,
                         parse: false,
                         output: 'stream'
                     },
@@ -135,6 +136,12 @@ module.exports = function({namespace, methods}) {
                     delete this.httpServer;
                 }
                 return super.stop(...arguments);
+            }
+
+            ready() {
+                const {protocol, port} = this.httpServer.info;
+                this.log?.info(`${protocol}://localhost:${port}/api`);
+                return super.ready();
             }
 
             handlers() {
