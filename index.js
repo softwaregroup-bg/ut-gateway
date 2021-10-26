@@ -96,6 +96,7 @@ module.exports = function({namespace, methods}) {
                 const options = {
                     auth: false,
                     payload: {
+                        maxBytes: 1024 * 1024 * 5, // TODO remove the hard coded value and substitute with one configured from ut-document
                         parse: false,
                         output: 'stream'
                     },
