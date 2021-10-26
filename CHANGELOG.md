@@ -1,3 +1,13 @@
+## [7.4.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.0...v7.4.1) (2021-10-26)
+
+
+### Bug Fixes
+
+* increase proxy payload limit to 1 GB ([f4f0eea](https://github.com/softwaregroup-bg/ut-gateway/commit/f4f0eea5b6a1b5ff23c4108b7efac889a88a7889))
+* logging ([2d83915](https://github.com/softwaregroup-bg/ut-gateway/commit/2d839158ee07c92ddc78c482f2a195745e4230e1))
+
+
+
 # [7.4.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.3.1...v7.4.0) (2021-06-03)
 
 
