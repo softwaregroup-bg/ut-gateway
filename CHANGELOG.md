@@ -1,3 +1,12 @@
+## [7.4.2](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.1...v7.4.2) (2022-06-29)
+
+
+### Bug Fixes
+
+* update hapi for node 16 ([1e10a70](https://github.com/softwaregroup-bg/ut-gateway/commit/1e10a7025bfb858c35b035619a0db55e77491a19))
+
+
+
 ## [7.4.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.0...v7.4.1) (2021-10-26)
 
 
