@@ -1,24 +1,22 @@
 {
   "name": "ut-gateway",
-  "version": "7.5.0-nmb.0",
+  "version": "7.4.2-nmb.0",
   "main": "index.js",
   "dependencies": {
-    "@hapi/boom": "9.1.0",
-    "@hapi/h2o2": "9.0.2",
-    "@hapi/hapi": "20.0.1"
+    "@hapi/boom": "9.1.4",
+    "@hapi/h2o2": "9.1.0",
+    "@hapi/hapi": "20.2.1"
   },
   "devDependencies": {
-    "tap": "^15.0.9",
-    "ut-function.capture-hapi": "^1.1.1",
-    "ut-run": "^10.57.4",
-    "ut-port-script": "^7.1.1",
-    "ut-tools": "^6.34.2",
-    "why-is-node-running": "^2.2.0"
+    "tap": "^16.0.0",
+    "ut-function.capture-hapi": "^1.1.3",
+    "ut-run": "^10.69.8",
+    "ut-port-script": "^7.2.0"
   },
   "peerDependencies": {
     "ut-port-script": "^7.1.1",
     "ut-bus": "^7.47.0",
-    "ut-run": "^10.55.3"
+    "ut-run": "^10.64.6"
   },
   "description": "API gateway",
   "scripts": {
