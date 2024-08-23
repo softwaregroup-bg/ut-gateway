@@ -1,3 +1,12 @@
+# [7.5.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.2...v7.5.0) (2024-08-23)
+
+
+### Features
+
+* license check ([2019b0a](https://github.com/softwaregroup-bg/ut-gateway/commit/2019b0acbb890b2c8327a4500dae55e8a51ea813))
+
+
+
 ## [7.4.2](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.1...v7.4.2) (2022-06-29)
 
 
