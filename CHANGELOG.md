@@ -1,3 +1,12 @@
+## [7.5.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.5.0...v7.5.1) (2024-09-17)
+
+
+### Bug Fixes
+
+* remove built-in license check ([fad2ae2](https://github.com/softwaregroup-bg/ut-gateway/commit/fad2ae225b40fb4ad74e8128115aead697b53d15))
+
+
+
 # [7.5.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.4.2...v7.5.0) (2024-08-23)
 
 
