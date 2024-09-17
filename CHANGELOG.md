@@ -1,3 +1,12 @@
+# [7.6.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.5.1...v7.6.0) (2024-09-17)
+
+
+### Features
+
+* licenseFeature configuration ([6f9bca3](https://github.com/softwaregroup-bg/ut-gateway/commit/6f9bca3ef9f77b37b96b6a1e2baced331d023ff8))
+
+
+
 ## [7.5.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.5.0...v7.5.1) (2024-09-17)
 
 
