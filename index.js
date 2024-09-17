@@ -1,1 +1,1 @@
-module.exports = ({namespace, methods}) => (...params) => require('./port')({namespace, methods, params});
+module.exports = ({namespace, methods, licenseFeature}) => (...params) => require('./port')({namespace, methods, params, licenseFeature});

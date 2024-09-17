@@ -2,8 +2,8 @@ const Hapi = require('@hapi/hapi');
 const H2o2 = require('@hapi/h2o2');
 const scriptPort = require('ut-port-script');
 const busApi = ['rpc', 'a', 'api'];
-// const license = require('@feasibleone/aegis')(module);
-module.exports = ({namespace, methods, params}) => ({
+const license = require('@feasibleone/aegis')(module);
+module.exports = ({namespace, methods, params, licenseFeature}) => ({
     [namespace]: class extends scriptPort(...params) {
         get defaults() {
             return {
@@ -100,7 +100,7 @@ module.exports = ({namespace, methods, params}) => ({
                     output: 'stream'
                 },
                 async handler(request, h) {
-                    // license.active(namespace);
+                    licenseFeature && license.active(licenseFeature);
                     const [, root, service] = request.path.split('/', 3);
                     const appService = (request.route.settings.app && request.route.settings.app.service);
                     const {hostname, host = hostname, port, protocol} = (discover && (appService || busApi.includes(root)))
