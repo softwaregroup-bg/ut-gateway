@@ -1,6 +1,6 @@
 {
   "name": "ut-gateway",
-  "version": "7.6.0",
+  "version": "7.6.1",
   "main": "index.js",
   "dependencies": {
     "@hapi/boom": "9.1.4",

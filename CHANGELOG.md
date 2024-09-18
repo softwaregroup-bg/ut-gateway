@@ -1,3 +1,12 @@
+## [7.6.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.6.0...v7.6.1) (2024-09-18)
+
+
+### Bug Fixes
+
+* simplify codebase and require aegis on demand ([439e577](https://github.com/softwaregroup-bg/ut-gateway/commit/439e577ace1681aca49404e508301e874b7b572b))
+
+
+
 # [7.6.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.5.1...v7.6.0) (2024-09-17)
 
 
