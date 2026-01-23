@@ -1,3 +1,12 @@
+# [7.7.0](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.6.1...v7.7.0) (2026-01-23)
+
+
+### Features
+
+* add block routes option BGTC-1 ([edf2f62](https://github.com/softwaregroup-bg/ut-gateway/commit/edf2f621add344970eccef4f81b5d2ff51e5f969))
+
+
+
 ## [7.6.1](https://github.com/softwaregroup-bg/ut-gateway/compare/v7.6.0...v7.6.1) (2024-09-18)
 
 
