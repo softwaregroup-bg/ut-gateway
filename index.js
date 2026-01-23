@@ -1,5 +1,6 @@
 const Hapi = require('@hapi/hapi');
 const H2o2 = require('@hapi/h2o2');
+const Boom = require('@hapi/boom');
 const scriptPort = require('ut-port-script');
 const busApi = ['rpc', 'a', 'api'];
 module.exports = function({namespace, methods, licenseFeature}) {
@@ -91,7 +92,7 @@ module.exports = function({namespace, methods, licenseFeature}) {
             async start() {
                 const result = await super.start(...arguments);
                 // const stream = this.pull({exec: this.sendRequest}, {requests: {}});
-                const {api, proxy, discover} = this.config;
+                const {api, proxy, discover, blocked} = this.config;
                 const bus = this.bus;
                 const options = {
                     auth: false,
@@ -115,6 +116,11 @@ module.exports = function({namespace, methods, licenseFeature}) {
                         });
                     }
                 };
+                blocked && this.httpServer.route(blocked.map(path => ({
+                    method: '*',
+                    path: path.path || path,
+                    handler: () => Boom.forbidden()
+                })));
                 this.httpServer.route(api.map(path => ({
                     method: '*',
                     path: path.path || path,
