@@ -3,6 +3,8 @@ const H2o2 = require('@hapi/h2o2');
 const Boom = require('@hapi/boom');
 const scriptPort = require('ut-port-script');
 const busApi = ['rpc', 'a', 'api'];
+const fs = require('fs');
+const path = require('path');
 module.exports = function({namespace, methods, licenseFeature}) {
     const license = licenseFeature && require('@feasibleone/aegis')(module);
     return (...params) => ({
@@ -36,6 +38,12 @@ module.exports = function({namespace, methods, licenseFeature}) {
                 }
                 const agent = createAgent();
                 const result = await super.init(...arguments);
+                // load cert if available
+                if (this.config.server?.tls) {
+                    const tls = this.config.server.tls;
+                    tls.key = fs.readFileSync(path.resolve(tls.key));
+                    tls.cert = fs.readFileSync(path.resolve(tls.cert));
+                }
                 this.httpServer = new Hapi.Server(this.config.server);
                 if (this.config.capture) {
                     await this.httpServer.register({
